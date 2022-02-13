@@ -22,6 +22,10 @@ extension ViewController {
         getConversionDate()
     }
     
+    func disableConvertedTextFieldUserInteraction() {
+        convertedCurrencyTextField.isUserInteractionEnabled = false
+    }
+    
     func configureLayoutViews() {
         configureChart(dataPoints: months, values: unitsSold)
         lineChartView.backgroundColor = UIColor(named: "deepBlue")

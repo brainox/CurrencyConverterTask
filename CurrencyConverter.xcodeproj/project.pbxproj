@@ -11,7 +11,7 @@
 		B43313DB27B5A7B100A4D7A5 /* TimeConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43313DA27B5A7B100A4D7A5 /* TimeConversion.swift */; };
 		B46470AC279C84A9006C06B7 /* Extension+ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46470AB279C84A9006C06B7 /* Extension+ViewController.swift */; };
 		B46470AF279C8C9D006C06B7 /* LineChartDisplayIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46470AE279C8C9D006C06B7 /* LineChartDisplayIndicator.swift */; };
-		B46470B4279CE1D5006C06B7 /* ApiCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46470B3279CE1D5006C06B7 /* ApiCall.swift */; };
+		B46470B4279CE1D5006C06B7 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46470B3279CE1D5006C06B7 /* ApiManager.swift */; };
 		B46470B6279CE1FE006C06B7 /* ModelStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46470B5279CE1FE006C06B7 /* ModelStructure.swift */; };
 		B46470BF279E139A006C06B7 /* CurrencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46470BE279E139A006C06B7 /* CurrencyViewModel.swift */; };
 		B46470C1279E14F3006C06B7 /* RealmModelObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46470C0279E14F3006C06B7 /* RealmModelObjects.swift */; };
@@ -45,7 +45,7 @@
 		B43313DA27B5A7B100A4D7A5 /* TimeConversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeConversion.swift; sourceTree = "<group>"; };
 		B46470AB279C84A9006C06B7 /* Extension+ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+ViewController.swift"; sourceTree = "<group>"; };
 		B46470AE279C8C9D006C06B7 /* LineChartDisplayIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartDisplayIndicator.swift; sourceTree = "<group>"; };
-		B46470B3279CE1D5006C06B7 /* ApiCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCall.swift; sourceTree = "<group>"; };
+		B46470B3279CE1D5006C06B7 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		B46470B5279CE1FE006C06B7 /* ModelStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelStructure.swift; sourceTree = "<group>"; };
 		B46470BE279E139A006C06B7 /* CurrencyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewModel.swift; sourceTree = "<group>"; };
 		B46470C0279E14F3006C06B7 /* RealmModelObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModelObjects.swift; sourceTree = "<group>"; };
@@ -168,7 +168,7 @@
 		B46470B2279CE1AB006C06B7 /* ApiService */ = {
 			isa = PBXGroup;
 			children = (
-				B46470B3279CE1D5006C06B7 /* ApiCall.swift */,
+				B46470B3279CE1D5006C06B7 /* ApiManager.swift */,
 			);
 			path = ApiService;
 			sourceTree = "<group>";
@@ -401,7 +401,7 @@
 				B46470AF279C8C9D006C06B7 /* LineChartDisplayIndicator.swift in Sources */,
 				B46470C1279E14F3006C06B7 /* RealmModelObjects.swift in Sources */,
 				B46470C3279E16B7006C06B7 /* RealmPersistenceStore.swift in Sources */,
-				B46470B4279CE1D5006C06B7 /* ApiCall.swift in Sources */,
+				B46470B4279CE1D5006C06B7 /* ApiManager.swift in Sources */,
 				B4EAB4072792FC0A00B3FD73 /* ViewController.swift in Sources */,
 				B43313DB27B5A7B100A4D7A5 /* TimeConversion.swift in Sources */,
 				B4EAB4032792FC0A00B3FD73 /* AppDelegate.swift in Sources */,

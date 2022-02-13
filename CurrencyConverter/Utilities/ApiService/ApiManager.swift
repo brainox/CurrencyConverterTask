@@ -1,9 +1,12 @@
 import UIKit
 import Alamofire
-
 import RealmSwift
 
-class ApiCall{
+protocol Api {
+    
+}
+
+class ApiManager{
     
     let realm = try! Realm()
     fileprivate var urlLink: String
@@ -11,10 +14,13 @@ class ApiCall{
     init(urlLink: String){
         self.urlLink = urlLink
     }
-    func getData(completionHandler: @escaping (CurrencyModel) -> Void){
+    func getData(completionHandler: @escaping (Result<CurrencyModel, AFError>) -> Void){
         AF.request(urlLink).responseDecodable(of: CurrencyModel.self) { result in
+            if let error = result.error {
+                completionHandler(.failure(error))
+            }
             if let response = result.value{
-                completionHandler(response)
+                completionHandler(.success(response))
             }
         }
     }
