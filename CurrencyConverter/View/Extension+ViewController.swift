@@ -99,6 +99,7 @@ extension ViewController {
         lineChartView.legend.enabled = false
         lineChartView.animate(xAxisDuration: 1.5)
     }
+    
     func getConversionDate() {
         viewModel.getConversionRate = { [weak self] ratesArray in
             self?.currencyRates = ratesArray

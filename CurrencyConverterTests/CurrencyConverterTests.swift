@@ -43,6 +43,14 @@ class ViewControllerTests: XCTestCase {
         XCTAssertNotNil(sut.lineChartView.delegate, "LineChart Delegate is nil")
     }
     
+    func test_viewDidLoad_initialState() throws {
+        let sut = try makeSUT()
+        
+        sut.loadViewIfNeeded()
+        
+        XCTAssertEqual(sut.convertedCurrencyTextField.text, "", "convertedCurrencyTextField is not nil")
+    }
+    
     private func makeSUT() throws -> ViewController {
         let bundle = Bundle(for: ViewController.self)
         let storyboard = UIStoryboard(name: "Main", bundle: bundle)
