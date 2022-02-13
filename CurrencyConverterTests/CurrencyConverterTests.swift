@@ -12,38 +12,36 @@ class ViewControllerTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-
+        
     }
-
+    
     override func tearDown() {
-
+        
         super.tearDown()
     }
     
     // testing that the initial view controller is ViewController
     func test_canInit() throws {
-        let bundle = Bundle(for: ViewController.self)
-        let storyboard = UIStoryboard(name: "Main", bundle: bundle)
-
-        let initialVC = storyboard.instantiateInitialViewController()
-        let vc = try XCTUnwrap(initialVC as? UIViewController)
-        
-        _ = try XCTAssert(vc is ViewController)
+        _ = try makeSUT()
     }
     
     func test_viewDidLoad_setsBackgroundColor() throws {
-        let bundle = Bundle(for: ViewController.self)
-        let storyboard = UIStoryboard(name: "Main", bundle: bundle)
-
-        let initialVC = storyboard.instantiateInitialViewController()
-        let vc = try XCTUnwrap(initialVC as? UIViewController)
-        
-        let sut = try XCTUnwrap(vc as? ViewController)
+        let sut = try makeSUT()
         
         let vcBackgroundColor = try XCTUnwrap(sut.view.backgroundColor, "ViewController background color is nil")
         
         let expectedViewControllerBackgroundColor = UIColor.white
         
         XCTAssertEqual(vcBackgroundColor.toHexString(), expectedViewControllerBackgroundColor.toHexString())
+    }
+    
+    private func makeSUT() throws -> ViewController {
+        let bundle = Bundle(for: ViewController.self)
+        let storyboard = UIStoryboard(name: "Main", bundle: bundle)
+        
+        let initialVC = storyboard.instantiateInitialViewController()
+        let vc = try XCTUnwrap(initialVC)
+        
+        return try XCTUnwrap(vc as? ViewController)
     }
 }
