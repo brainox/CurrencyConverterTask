@@ -63,27 +63,46 @@ class ViewControllerTests: XCTestCase {
         //What we expect to happen
         let promise = expectation(description: "Status code: 200 or 201")
         
-        let task = sut.viewModel.apiClass?.getData(completionHandler: { CurrencyModel in
-            <#code#>
+        let task = sut.viewModel.apiClass?.getData(completionHandler: { result in
+            
         })
         
-        // when
-//        let dataTask = sut.dataTask(with: url!) { data, response, error in
-//
-//            // then
-//            if let error = error {
-//                XCTFail("Error: \(error.localizedDescription)")
-//                return
-//            } else if let statusCode = (response as? HTTPURLResponse)?.statusCode {
-//
-//                if statusCode == 200 || statusCode == 201 {
-//                    promise.fulfill()
-//                } else {
-//                    XCTFail("Status code: \(statusCode)")
+        sut.viewModel.apiClass?.getData(completionHandler: { result in
+            switch result {
+                
+            case .success(let response):
+//                if let statusCode = (response as? HTTPURLResponse)?.statusCode {
+//                    if statusCode == 200 || statusCode == 201 {
+//                        print("Status code is 200")
+//                    } else {
+//                        print("")
+//                    }
 //                }
-//            }
-//        }
-//        dataTask.resume()
+                print("")
+            case .failure(let error):
+                XCTFail("Error: \(error.localizedDescription)")
+            }
+        })
+        
+        
+        
+        // when
+        //        let dataTask = sut.dataTask(with: url!) { data, response, error in
+        //
+        //            // then
+        //            if let error = error {
+        //                XCTFail("Error: \(error.localizedDescription)")
+        //                return
+        //            } else if let statusCode = (response as? HTTPURLResponse)?.statusCode {
+        //
+        //                if statusCode == 200 || statusCode == 201 {
+        //                    promise.fulfill()
+        //                } else {
+        //                    XCTFail("Status code: \(statusCode)")
+        //                }
+        //            }
+        //        }
+        //        dataTask.resume()
         
         //Keeps the test running until all expectations are fulfilled, or the timeout interval ends, whichever happens first
         wait(for: [promise], timeout: 5)
@@ -99,14 +118,14 @@ class ViewControllerTests: XCTestCase {
         let vc = try XCTUnwrap(initialVC)
         
         let sut = try XCTUnwrap(vc as? ViewController)
-        sut.viewModel.apiClass = ApiManagerStub(urlLink: "")
+        sut.viewModel.apiClass = ApiManager(urlLink: "")
         
         return try XCTUnwrap(vc as? ViewController)
     }
     
     private class ApiManagerStub: ApiManager {
-        override func getData(completionHandler: @escaping (CurrencyModel) -> Void) {
-            
+        override func getData(completionHandler: @escaping (Result<CurrencyModel, AFError>) -> Void) {
+        
         }
     }
 }

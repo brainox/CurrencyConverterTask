@@ -25,24 +25,31 @@ class CurrencyViewModel {
     }
     
     func saveData(){
+        
         apiClass?.getData(completionHandler: { [self] result in
-            self.base.append(result.base)
-            self.date = result.date
-            self.timeStamp = result.timestamp
-            
-            for (key, value) in result.rates{
-                persistRate = CurrencyDictionary()
-                persistRate?.currency = key
-                persistRate?.rate = value
-                currency.currency.append(persistRate!)
-                rateArray.append(value)
-                getDate?(timeStamp)
-                getConversionRate?(rateArray)
+            switch result {
+                
+            case .success(let data):
+                self.base.append(data.base)
+                self.date = data.date
+                self.timeStamp = data.timestamp
+                
+                for (key, value) in data.rates{
+                    persistRate = CurrencyDictionary()
+                    persistRate?.currency = key
+                    persistRate?.rate = value
+                    currency.currency.append(persistRate!)
+                    rateArray.append(value)
+                    getDate?(timeStamp)
+                    getConversionRate?(rateArray)
+                }
+                
+                persistRealm.delete()
+                persistRealm.saveData(of: currency)
+                readDataSaved?(true)
+            case .failure(let error):
+                print(error.localizedDescription)
             }
-            
-            persistRealm.delete()
-            persistRealm.saveData(of: currency)
-            readDataSaved?(true)
         })
     }
     
