@@ -20,7 +20,7 @@
 		B46F1B4827B7D50E00866DCD /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B46F1B4727B7D50E00866DCD /* RealmSwift */; };
 		B46F1B5027B7D95D00866DCD /* CurrencyConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46F1B4F27B7D95D00866DCD /* CurrencyConverterTests.swift */; };
 		B46F1B5727B7DCC700866DCD /* CurrencyViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46F1B5627B7DCC700866DCD /* CurrencyViewModelTests.swift */; };
-		B46F1B5927B96AA500866DCD /* ViewControllerB.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46F1B5827B96AA500866DCD /* ViewControllerB.swift */; };
+		B46F1B5C27B971D500866DCD /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46F1B5B27B971D400866DCD /* Extension+UIColor.swift */; };
 		B4EAB4032792FC0A00B3FD73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EAB4022792FC0A00B3FD73 /* AppDelegate.swift */; };
 		B4EAB4052792FC0A00B3FD73 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EAB4042792FC0A00B3FD73 /* SceneDelegate.swift */; };
 		B4EAB4072792FC0A00B3FD73 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EAB4062792FC0A00B3FD73 /* ViewController.swift */; };
@@ -53,7 +53,7 @@
 		B46F1B4D27B7D95D00866DCD /* CurrencyConverterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CurrencyConverterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B46F1B4F27B7D95D00866DCD /* CurrencyConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterTests.swift; sourceTree = "<group>"; };
 		B46F1B5627B7DCC700866DCD /* CurrencyViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewModelTests.swift; sourceTree = "<group>"; };
-		B46F1B5827B96AA500866DCD /* ViewControllerB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerB.swift; sourceTree = "<group>"; };
+		B46F1B5B27B971D400866DCD /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
 		B4EAB3FF2792FC0A00B3FD73 /* CurrencyConverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyConverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4EAB4022792FC0A00B3FD73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4EAB4042792FC0A00B3FD73 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +106,7 @@
 		B41C322B27AB200300A173A3 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				B46F1B5A27B971B500866DCD /* Extensions */,
 				B499BF9727B087EC0004D5BB /* RealmUtilities */,
 				B46470B2279CE1AB006C06B7 /* ApiService */,
 				B46470AD279C8C85006C06B7 /* ChartIndicator */,
@@ -118,7 +119,6 @@
 			isa = PBXGroup;
 			children = (
 				B4EAB4062792FC0A00B3FD73 /* ViewController.swift */,
-				B46F1B5827B96AA500866DCD /* ViewControllerB.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -180,6 +180,14 @@
 				B46F1B5627B7DCC700866DCD /* CurrencyViewModelTests.swift */,
 			);
 			path = CurrencyConverterTests;
+			sourceTree = "<group>";
+		};
+		B46F1B5A27B971B500866DCD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B46F1B5B27B971D400866DCD /* Extension+UIColor.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		B499BF9727B087EC0004D5BB /* RealmUtilities */ = {
@@ -397,9 +405,9 @@
 				B4EAB4072792FC0A00B3FD73 /* ViewController.swift in Sources */,
 				B43313DB27B5A7B100A4D7A5 /* TimeConversion.swift in Sources */,
 				B4EAB4032792FC0A00B3FD73 /* AppDelegate.swift in Sources */,
-				B46F1B5927B96AA500866DCD /* ViewControllerB.swift in Sources */,
 				B46470AC279C84A9006C06B7 /* Extension+ViewController.swift in Sources */,
 				B4EAB4052792FC0A00B3FD73 /* SceneDelegate.swift in Sources */,
+				B46F1B5C27B971D500866DCD /* Extension+UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

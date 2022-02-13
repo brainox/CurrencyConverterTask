@@ -40,6 +40,7 @@ class ViewController: UIViewController, ChartViewDelegate {
     @IBOutlet weak var textFieldOfAmountToBeConverted: UITextField!
     @IBOutlet weak var convertedCurrencyTextField: UITextField!
     @IBOutlet weak var currentTime: UILabel!
+    
     @IBAction func convertButton(_ sender: Any) {
         guard let firstCurrencyText = textFieldOfAmountToBeConverted.text else {
             return

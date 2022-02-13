@@ -28,6 +28,22 @@ class ViewControllerTests: XCTestCase {
         let initialVC = storyboard.instantiateInitialViewController()
         let vc = try XCTUnwrap(initialVC as? UIViewController)
         
-        let sut = try XCTAssert(vc is ViewController)
+        _ = try XCTAssert(vc is ViewController)
+    }
+    
+    func test_viewDidLoad_setsBackgroundColor() throws {
+        let bundle = Bundle(for: ViewController.self)
+        let storyboard = UIStoryboard(name: "Main", bundle: bundle)
+
+        let initialVC = storyboard.instantiateInitialViewController()
+        let vc = try XCTUnwrap(initialVC as? UIViewController)
+        
+        let sut = try XCTUnwrap(vc as? ViewController)
+        
+        let vcBackgroundColor = try XCTUnwrap(sut.view.backgroundColor, "ViewController background color is nil")
+        
+        let expectedViewControllerBackgroundColor = UIColor.white
+        
+        XCTAssertEqual(vcBackgroundColor.toHexString(), expectedViewControllerBackgroundColor.toHexString())
     }
 }
