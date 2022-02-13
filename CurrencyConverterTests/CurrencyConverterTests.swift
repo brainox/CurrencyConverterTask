@@ -25,6 +25,7 @@ class ViewControllerTests: XCTestCase {
         _ = try makeSUT()
     }
     
+    // testing that the ViewController background color is blue
     func test_viewDidLoad_setsBackgroundColor() throws {
         let sut = try makeSUT()
         
@@ -35,6 +36,7 @@ class ViewControllerTests: XCTestCase {
         XCTAssertEqual(vcBackgroundColor.toHexString(), expectedViewControllerBackgroundColor.toHexString())
     }
     
+    // testing that the lineChartView delegate is the ViewController class
     func test_viewDidLoad_configuresLineChartDelegate() throws {
         let sut = try makeSUT()
         
@@ -43,7 +45,8 @@ class ViewControllerTests: XCTestCase {
         XCTAssertNotNil(sut.lineChartView.delegate, "LineChart Delegate is nil")
     }
     
-    func test_viewDidLoad_initialState() throws {
+    // testing that the initial state of the  convertedCurrencyTextField text is empty
+    func test_viewDidLoad_convertedCurrencyTextFieldInitialState() throws {
         let sut = try makeSUT()
         
         sut.loadViewIfNeeded()
@@ -51,6 +54,7 @@ class ViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.convertedCurrencyTextField.text, "", "convertedCurrencyTextField is not nil")
     }
     
+    // extracting the initial process of loading the storyboard into a factory method
     private func makeSUT() throws -> ViewController {
         let bundle = Bundle(for: ViewController.self)
         let storyboard = UIStoryboard(name: "Main", bundle: bundle)
