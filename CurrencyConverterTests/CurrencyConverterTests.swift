@@ -35,6 +35,14 @@ class ViewControllerTests: XCTestCase {
         XCTAssertEqual(vcBackgroundColor.toHexString(), expectedViewControllerBackgroundColor.toHexString())
     }
     
+    func test_viewDidLoad_configuresLineChartDelegate() throws {
+        let sut = try makeSUT()
+        
+        sut.loadViewIfNeeded()
+        
+        XCTAssertNotNil(sut.lineChartView.delegate, "LineChart Delegate is nil")
+    }
+    
     private func makeSUT() throws -> ViewController {
         let bundle = Bundle(for: ViewController.self)
         let storyboard = UIStoryboard(name: "Main", bundle: bundle)

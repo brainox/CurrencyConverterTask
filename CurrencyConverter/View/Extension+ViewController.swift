@@ -3,9 +3,11 @@ import Foundation
 import Charts
 extension ViewController {
     
-    func configureViews() {
-        lineChartView.backgroundColor = .blue
+    func configureLineChartDelegate() {
         lineChartView.delegate = self
+    }
+    
+    func configureViews() {
         viewModel.saveData()
         viewModel.passRetreivedData(completionHandler: { [weak self]
             data in
@@ -76,6 +78,7 @@ extension ViewController {
         lineChartView.data = chartData
     }
     func configureLineChartView() {
+        
         lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: months)
         lineChartView.xAxis.labelPosition = .bottom
         lineChartView.xAxis.drawGridLinesEnabled = false
