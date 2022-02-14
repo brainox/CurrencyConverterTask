@@ -90,6 +90,3 @@ class ViewController: UIViewController, ChartViewDelegate {
     
 }
 
-extension ViewController: UITextFieldDelegate {
-    
-}

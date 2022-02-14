@@ -54,7 +54,6 @@ class ViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.convertedCurrencyTextField.text, "", "convertedCurrencyTextField is not nil")
     }
     
-    
     // extracting the initial process of loading the storyboard into a factory method
     private func makeSUT() throws -> ViewController {
         let bundle = Bundle(for: ViewController.self)
