@@ -12,21 +12,19 @@ class CurrencyViewModel {
     var loadCurrencyDropDown: [String] = []
     let persistRealm = RealmPersistenceStore()
     var base: [String] = [String]()
-    var urlString: String?
-    var apiClass: ApiManager?
+    var apiClass: ApiManager
     var readDataSaved : ((Bool) -> Void)?
     var rateArray = [Double]()
     var getConversionRate: (([Double]) -> Void)?
     var getDate: ((Int) -> Void)?
     
-    init(apiString: String){
-        self.urlString = apiString
-        apiClass = ApiManager(urlLink: urlString ?? "")
+    init(apiManager: ApiManager){
+        self.apiClass = apiManager
     }
     
     func saveData(){
         
-        apiClass?.getData(completionHandler: { [self] result in
+        apiClass.getData(completionHandler: { [self] result in
             switch result {
                 
             case .success(let data):

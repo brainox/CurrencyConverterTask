@@ -54,6 +54,8 @@ class ViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.convertedCurrencyTextField.text, "", "convertedCurrencyTextField is not nil")
     }
     
+    
+    
     // extracting the initial process of loading the storyboard into a factory method
     private func makeSUT() throws -> ViewController {
         let bundle = Bundle(for: ViewController.self)
@@ -63,9 +65,19 @@ class ViewControllerTests: XCTestCase {
         let vc = try XCTUnwrap(initialVC)
         
         let sut = try XCTUnwrap(vc as? ViewController)
-        sut.viewModel.apiClass = ApiManager(urlLink: "")
+        sut.apimanager = ApiMock(urlLink: "")
         
         return try XCTUnwrap(vc as? ViewController)
     }
 
+
+}
+
+private extension ViewControllerTests {
+    class ApiMock: ApiManager {
+        override func getData(completionHandler: @escaping (Result<CurrencyModel, Error>) -> Void) {
+            let result = CurrencyModel(success: true, timestamp: 1, base: "oha", date: "", rates: ["EUR" : 10.3])
+            completionHandler(.success(result))
+        }
+    }
 }

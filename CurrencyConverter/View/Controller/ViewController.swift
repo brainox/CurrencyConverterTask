@@ -4,13 +4,13 @@ import DropDown
 import Charts
 
 class ViewController: UIViewController, ChartViewDelegate {
-    
+    var apimanager: ApiManager = ApiManager(urlLink: "http://data.fixer.io/api/latest?access_key=e495167586ff929ca03db8c2c900ff94&format=1")
     var currencyRates = [Double]()
     var rateAtIndex = 0.0
     let months = ["01 Jan", "07 Jun", "15 Jun", "23 Jun", "30 Jun"]
     let unitsSold = [50.0, 25.0, 50.0, 75.0, 100.0, 75.0]
     var dataEntries: [ChartDataEntry] = []
-    let viewModel = CurrencyViewModel(apiString: "http://data.fixer.io/api/latest?access_key=e495167586ff929ca03db8c2c900ff94&format=1")
+    lazy var viewModel = CurrencyViewModel(apiManager: apimanager)
     lazy var firstCurrencyLogo = [String]()
     lazy var secondCurrencyLogo = [String]()
     let secondCurrencyDropDown = DropDown()
