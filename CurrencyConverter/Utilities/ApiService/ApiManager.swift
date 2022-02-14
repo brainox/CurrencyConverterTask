@@ -6,6 +6,7 @@ protocol Api {
     
 }
 
+
 class ApiManager{
     
     let sessionManager: Session = {
@@ -30,11 +31,17 @@ class ApiManager{
         self.urlLink = urlLink
     }
     
-    func getData(completionHandler: @escaping (Result<CurrencyModel, AFError>) -> Void){
+    
+    func getData(completionHandler: @escaping (Result<CurrencyModel, Error>) -> Void){
+    
         sessionManager.request(urlLink).responseDecodable(of: CurrencyModel.self) { result in
+        
             if let error = result.error {
-                completionHandler(.failure(error))
+                
+                let errors = NSError(domain: error.url?.absoluteString ?? "", code: error.responseCode ?? 0, userInfo: ["description": error.localizedDescription])
+                completionHandler(.failure(errors))
             }
+            
             
             if let response = result.value{
                 completionHandler(.success(response))
@@ -42,5 +49,4 @@ class ApiManager{
         }
     }
 }
-
 
