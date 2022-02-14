@@ -31,25 +31,7 @@ class ApiManager{
         self.urlLink = urlLink
     }
     
-    
     func getData(completionHandler: @escaping (Result<CurrencyModel, Error>) -> Void){
-        
-        sessionManager.request(urlLink).responseDecodable(of: CurrencyModel.self) { result in
-            
-            if let error = result.error {
-                
-                let errors = NSError(domain: error.url?.absoluteString ?? "", code: error.responseCode ?? 0, userInfo: ["description": error.localizedDescription])
-                completionHandler(.failure(errors))
-            }
-            
-            
-            if let response = result.value{
-                completionHandler(.success(response))
-            }
-        }
-    }
-    
-    func fetchData(completionHandler: @escaping (Result<CurrencyModel, Error>) -> Void){
         
         sessionManager.request(urlLink).responseDecodable(of: CurrencyModel.self) { result in
             
@@ -59,16 +41,19 @@ class ApiManager{
                 switch error {
                 case .invalidURL(let url):
                     print("Invalid URL: \(url) - \(error.localizedDescription)")
+                    completionHandler(.failure(error))
                 case .multipartEncodingFailed(let reason):
                     print("Multipart encoding failed: \(error.localizedDescription)")
                     print("Failure Reason: \(reason)")
+                    completionHandler(.failure(error))
                 case .parameterEncodingFailed(let reason):
                     print("Parameter encoding failed: \(error.localizedDescription)")
                     print("Failure Reason: \(reason)")
-                    
+                    completionHandler(.failure(error))
                 case .responseValidationFailed(let reason):
                     print("Response validation failed: \(error.localizedDescription)")
                     print("Failure Reason: \(reason)")
+                    completionHandler(.failure(error))
                     
                     switch reason {
                     case .dataFileNil, .dataFileReadFailed:
@@ -87,9 +72,14 @@ class ApiManager{
                 default: break
                 }
                 print("Underlying error: \(String(describing: error.underlyingError))")
+                completionHandler(.failure(error))
                 
             } else {
                 print("Unknown error: \(String(describing: result.error))")
+                
+            }
+            if let response = result.value{
+                completionHandler(.success(response))
             }
         }
     }
